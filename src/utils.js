@@ -9,4 +9,14 @@ const throttle = (callback, time) => {
   }, time);
 };
 
+// const inVeiwTrigger = (elementRef, animeRef, topRatio) => {
+//   const windowHeight =
+//     window.innerHeight || document.documentElement.clientHeight;
+//   const targetTop = elementRef.current.getBoundingClientRect().top;
+
+//   if (targetTop < windowHeight * topRatio) {
+//     animeRef.current.play();
+//   }
+// };
+
 export { throttle };

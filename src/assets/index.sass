@@ -1,19 +1,12 @@
-
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap")
 $bg-color: rgb(24, 24, 24)
-    
 *
     margin: 0px
     padding: 0px
-
+    font-family: "Helvetica", "Arial", "Noto Sans TC", "黑體-繁","微軟正黑體", "sans-serif"
 body
     overflow-x: hidden
     overflow-y: scroll
-
-// @mixin v-center
-//     position: absolute
-//     top: 50%
-//     -ms-transform: translateY(-50%)
-//     transform: translateY(-50%)
 
 @mixin vh-center-item
     display: flex
@@ -25,7 +18,6 @@ body
     position: sticky
     top: $top
 
-
 $container-size: 1, 2, 3, 4
 @each $size in $container-size
     .container-#{$size}
@@ -33,16 +25,9 @@ $container-size: 1, 2, 3, 4
         height: 100vh * $size
         color: #fff
         background-color: $bg-color
-        font-family: Arial, Helvetica, sans-serif
         // overflow: hidden // ! For sticky to work properly, overflow property should be modified in the following components
 
-
-// .sectionContainer
-//     width: 99vw
-//     height: 40vh
-//     position: relative
-
-// * property for "Name" component
+// * property for "Greeting" component
 .sticky-container
     @include sticky-effect
 
@@ -71,17 +56,30 @@ $container-size: 1, 2, 3, 4
         z-index: 1
         background-color: rgba(0,0,0, 0.8)
         @include vh-center-item
-    // filter: blur(4px)
 
 .name-container
     #name
         font-size: 30vh
         text-align: center
-
     #scrollDownSign
         position: absolute
-        bottom: 13%
-        right: 7%
+        bottom: 16%
+        right: 9%
+        @include vh-center-item
+        > *
+            position: absolute
+
+.text-ring 
+    position: relative
+    user-select: none
+    pointer-events: none
+
+.text-ring [style*=--index] 
+    font-size: 2.2vh
+    position: absolute
+    text-transform: uppercase
+    font-family: monospace
+    transform: translate(-50%, -50%) rotate(calc(360deg / var(--total) * var(--index))) translateY(calc(var(--radius, 5) * -1ch))
 
 .greeting-container
     background: rgba(0,0,0,0)
@@ -103,312 +101,255 @@ $container-size: 1, 2, 3, 4
     left: 5%
     z-index: 3
 
-// .sectionContainer
-//     color: rgb(255, 255, 255)
-//     background-color: rgba(0, 0, 0, 1)
+// * property for "SectionTitle" component
+.section-container
+    width: 99vw
+    height: 50vh
+    color: #fff
+    background-color: $bg-color
 
-//     .section-flex
-//         border-top: 4px solid white
-//         padding-bottom: 1px
-//         width: 40%
-//         height: 30%
-//         right: 5%
-//         font-size: 4vh
+    display: flex
+    justify-content: flex-end
+    align-items: flex-end
 
-//         display: flex
-//         justify-content: space-between
-//         align-items: center
+.section-container
+    .title
+        // border: 1px solid white
+        border-top: 4px solid white
+        margin-right: 4%
+        margin-bottom: 4%
+        width: 50%
+        height: 30%
+        display: flex
+        justify-content: space-between
+        align-items: flex-start
+        span:first-child
+            font-size: 4vh
+            margin-top: 2vh
+        span:last-child
+            height: 9vh
+            overflow: hidden
+        .text-slide
+            font-size: 6vh
+            text-align: right
 
-//         @include v-center
+// * property for "Project" component
+@mixin grid-layout
+    width: 75%
+    height: 80%
+    display: grid
+    grid-template-columns: 3fr 2fr
+    grid-column-gap: 8%
 
-//         div
-//             padding-bottom: 8px
+.center-article
+    // *
+    //     border: 1px solid white
+    @include vh-center-item
 
-// @mixin lb-coner-align
-//     position: relative
-//     p
-//         position: absolute
-//         bottom: 0px
-//         left: 0px
-
-// .project-container
-//     color: rgb(255, 255, 255)
-//     background-color: rgba(0, 0, 0, 1)
-
-
-// @mixin grid-layout
-//     width: 75%
-//     height: 80%
-//     display: flex
-//     justify-content: space-between
-//     @include vh-center
-
-//     .left-panel
-//         flex: 3
-    
-//     .right-panel
-//         flex: 2
-//         margin-left: 5%
-    
-// @mixin grid-layout-new
-//     width: 75%
-//     height: 80%
-//     display: grid
-//     grid-template-columns: 3fr 2fr
-//     grid-column-gap: 8%
-//     @include vh-center
-
-
-// .project
-//     // @include grid-layout
-//     @include grid-layout-new
-
-//     // *
-//     //     border: 1px solid red
-//     p, a
-//         padding: 10px
-    
-//     // todo: using @mixin instead
-//     .left-panel
-//         display: grid
-//         grid-template-rows: 1fr 5% 1fr
-//         .title
-//             // color: rgb(0, 128, 255)
-//             grid-row: 1 / 3
-//             grid-column: 1
-//             font-size: 9vh
-//             color: #dfdfdf
-//             font-family: 'Ubuntu', sans-serif
-//             font-weight: bold
-//             letter-spacing: 5px
-//             text-shadow: 4px 4px 0px #000, -4px 0 0px #000, 7px 4px 0 #fff
-//             z-index: 1
-//             @include lb-coner-align
-//         .image
-//             grid-row: 2 / 4
-//             grid-column: 1
-//             border: 20px solid white
+.project-container
+    @include grid-layout
+    .left-panel
+        display: grid
+        grid-template-rows: 1fr 5% 1fr
+        .title
+            color: #ABB2B9
+            grid-row: 1 / 3
+            grid-column: 1
+            font-size: 9vh
+            font-weight: bold
+            text-align: left
+            // letter-spacing: 5px
+            text-shadow: -4px 4px 0px #000, 4px 0 0px #000, -7px 4px 0 #D5D8DC
             
-//             img
-//                 max-width: 100%
-//                 max-height: 100%
-                
+            display: flex
+            align-items: flex-end
+            z-index: 1
+        .image-container
+            grid-row: 2 / 4
+            grid-column: 1
+            border: 2.5vh solid white
+            height: 36vh
+            width: 39vw
+            overflow: hidden
+            img
+                object-fit: fill
     
-//     // todo: using @mixin instead
-//     .right-panel
-//         display: grid
-//         grid-template-rows: 1fr 20% 15% 7%
-//         font-size: 20px
-//         .desc
-//             margin-bottom: 3%
-//             @include lb-coner-align
-        
-//         .keyword
-//             color: rgb(178, 102, 255)
-//             span
-//                 margin-right: 20px
-        
-//         .position
-//             font-weight: bold
-//         .link
-//             position: relative
-//             a
-//                 @include v-center
-//                 color: white
+    .right-panel
+        display: grid
+        grid-template-rows: 1fr 20% 20% 7%
+        text-align: left
+        font-size: 2.5vh
+        .desc
+            display: flex
+            align-items: flex-end
+        .keyword
+            margin-top: 5%
+            color: #CB4335
+            // line-height: 1.5
+            display: flex
+            flex-wrap: wrap
+            align-content: flex-start
+            p
+                margin-right: 2.5vh
+            span
+                font-size: 1.8vh
+        .position
+            // line-height:1.5
+            font-weight: bold
+            p:last-child
+                display: flex
+                align-items: center
+        .link
+            // line-height:1.5
+            display: flex
+            align-items: center
+            a
+                color: #fff
 
-// .story-container
-//     overflow: visible
-//     height: 240vh
-//     border: 1px solid red
+// * property for "Story" component
+// ! "position: absolute" will effect "sticky" finctionality
+.container-auto
+    // overflow: visible
+    height: auto
+    padding: 17vh 0px
+    color: #fff
+    background-color: $bg-color
 
-// // ! "position: absolute" will effect sticky effect, 
-// // ! try center with grid!
-// .my-story
-//     // @include grid-layout-new
-//     align-items: start
-//     width: 75%
-//     height: 50%
-//     display: grid
-//     grid-template-columns: 3fr 2fr
-//     grid-column-gap: 8%
+.story-container
+    @include grid-layout
+    align-items: start
+    .left-panel
+        font-size: 6vh
+        p
+            margin-bottom: 7vh
+    .right-panel
+        height: 100%
+        .intro
+            width: 100%
+            height: 10%
+            position: relative
+            // margin-top: 5vh
+            @include sticky-effect(50%)
+            div
+                opacity: 0
+                width: 100%
+                position: absolute
+                background-color: $bg-color
+                p:first-child
+                    font-size: 3.5vh
+                    color: #CB4335
+                p:last-child
+                    @include vh-center-item
+            p
+                font-size: 4vh
+                text-align: center
 
-//     border: 1px solid white
+// * property for "Experience" component
+.experience-container
+    width: 75%
+    height: 80%
+    // border: 1px solid red
+    // *
+    //     border: 1px solid white
+    .summary
+        width: 60%
+        font-size: 5vh
+    .item
+        display: flex
+        justify-content: space-between
+        align-items: flex-end
+        border-top: 2px solid rgb(128,128,128)
+        margin-top: 8vh
+    .item:last-child
+        border-bottom: 2px solid rgb(128,128,128)
+        padding-bottom: 8vh
+    .left-panel
+        width: 45%
+        *
+            padding: 2.5vh 0px
+        .pos
+            font-size: 2.5vh
+            padding-top: 7vh
+        .desc
+            color: #ABB2B9
+            font-size: 2.2vh
+    .right-panel
+        height: 18vh
+        overflow: hidden
+        .date
+            letter-spacing: 5px
+            text-align: right
+            font-size: 18vh
+            padding: 10px 0px
 
-//     .left-panel
-//         // @include sticky-effect
-//         border: 1px solid red
-//         font-size: 5vh
-//         // p
-//         //     margin-bottom: 8vh
+            background-color: white
+            background: linear-gradient(#eee, 70%, #333)
+            -webkit-background-clip: text
+            -webkit-text-fill-color: transparent
+            -moz-background-clip: text
+            -moz-text-fill-color: transparent
+    .download
+        padding: 10px 0px
+        a
+            color: white
+            font-size: 2.5vh
 
-//     .right-panel
-//         border: 1px solid red
-//         @include sticky-effect
-//         height: 100%
-//         .personal-img
-//             @include sticky-effect
-//             background: green
-    //     img
-    //         max-width: 100%
-    //         max-height: 100%
-    //         object-fit: cover
+// * property for "Contact" component
+.contact-container
+    @include sticky-effect
+    > div
+        position: absolute
 
-// #test
-//     overflow: visible
-//     background-color: red
-//     color: white
+$contact-font-size: 38vh
+@mixin contact-layout
+    display: grid
+    grid-template-rows: 1fr 1.7fr 1.7fr 1fr
+    .left-slide
+        margin-bottom: -7.5vh
+    .right-slide
+        margin-top: -7.5vh
 
-//     article
-//         display: grid
-//         grid-template-columns: 1fr 1fr 1fr
-//         align-items: start
-//         border: 3px solid blue
+@mixin contact-info-layout
+    padding: 3vh
+    width: 80%
+    display: flex
+    justify-content: center
 
-//     *
-//         border: 3px solid white
+.contact-container
+    // *
+    //     border: 1px solid white
+    .back
+        z-index: 0
+        @include contact-layout
+        .left-slide
+            font-size: $contact-font-size
+        .right-slide
+            font-size: $contact-font-size
+            text-align: right
+    .front
+        z-index: 1
+        font-size: 7vh
+        background: rgba(0, 0, 0, 0)
+        @include contact-layout
+        .mail
+            @include contact-info-layout
+            align-items: flex-end
+            div
+                border-bottom: 2px solid rgb(128,128,128)
+        .phone
+            justify-self: end
+            @include contact-info-layout
+            align-items: flex-start
+            div
+                border-bottom: 2px solid rgb(128,128,128)
+        > div:last-child
+            color: rgb(128,128,128)
+            width: 25%
+            display: flex
+            justify-content: center
+            align-items: center
 
-    
-//     .left
-//         height: 100%
-//         div
-//             @include sticky-effect
-//     .middle
-//         font-size: 15vh
-//     .right
-//         @include sticky-effect
-
-// .exp-container
-//     height: 180vh
-//     // *
-//     //     border: 1px solid white
-
-// .experience
-//     width: 75%
-//     height: 90%
-//     @include vh-center
-
-//     .summary
-//         width: 60%
-//         // height: 100%
-//         padding: 0px 10px
-//         font-size: 5vh
-
-//     .item
-//         display: grid
-//         grid-template-columns: 2fr 1fr
-//         border-top: 2px solid rgb(128,128,128)
-//         margin-top: 8vh
-    
-//     .item:last-child
-//         border-bottom: 2px solid rgb(128,128,128)
-//         padding-bottom: 8vh
-    
-//     .left-panel
-//         width: 60%
-//         *
-//             padding: 2.5vh 10px
-//         .pos
-//             font-size: 2.5vh
-//             padding-top: 7vh
-//         .desc
-//             font-size: 2.2vh
-        
-
-//     .right-panel
-//         position: relative
-//         .date
-//             @include v-center
-//             letter-spacing: 5px
-//             text-align: right
-//             font-size: 18vh
-//             padding: 10px
-//             top: 60%
-//             right: 0px
-
-//             background-color: white
-//             background: linear-gradient(#eee, 70%, #333)
-//             -webkit-background-clip: text
-//             -webkit-text-fill-color: transparent
-//             -moz-background-clip: text
-//             -moz-text-fill-color: transparent
-    
-//     .download
-//         padding: 10px
-//         a
-//             color: white
-//             font-size: 2.5vh
-
-
-
-// .contact-container
-//     height: 300vh
-//     overflow: visible
-//     // *
-//     //     border: 1px solid white
-
-// .contact
-//     overflow: visible
-//     @include sticky-effect
-//     > div
-//         position: absolute
-
-// $contact-font-size: 38vh
-
-// @mixin contact-layout
-//     display: grid
-//     grid-template-rows: 1fr 1.7fr 1.7fr 1fr
-//     .left-slide
-//         margin-bottom: -7.5vh
-//     .right-slide
-//         margin-top: -7.5vh
-
-// .contact-back
-//     z-index: 0
-//     // display: grid
-//     // grid-template-rows: 1fr 1.7fr 1.7fr 1fr
-//     @include contact-layout
-
-//     .left-slide
-//         // margin-bottom: -7.5vh
-//         font-size: $contact-font-size
-//     .right-slide
-//         // margin-top: -7.5vh
-//         font-size: $contact-font-size
-//         text-align: right
-
-// .contact-front
-//     z-index: 1
-//     font-size: 7vh
-//     background: rgba(0, 0, 0, 0)
-//     @include contact-layout
-
-//     .mail
-//         padding: 3vh
-//         width: 80%
-//         display: flex
-//         justify-content: center
-//         align-items: flex-end
-//         div
-//             border-bottom: 2px solid rgb(128,128,128)
-    
-//     .phone
-//         padding: 3vh
-//         width: 80%
-//         justify-self: end
-//         display: flex
-//         justify-content: center
-//         align-items: flex-start
-//         div
-//             border-bottom: 2px solid rgb(128,128,128)
-    
-//     > div:last-child
-//         color: rgb(128,128,128)
-//         width: 25%
-//         display: flex
-//         justify-content: center
-//         align-items: center
-
-//         .creator
-//             text-align: center
-//             font-size: 2.5vh
-//             width: 80%
+            .creator
+                text-align: center
+                font-size: 2.5vh
+                width: 80%

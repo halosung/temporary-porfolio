@@ -1,9 +1,11 @@
 import React from "react";
 import { useRef, useEffect } from "react";
 import anime from "animejs";
+
 import { FaKiwiBird } from "react-icons/fa";
 import { SlMouse } from "react-icons/sl";
 
+import TextRing from "../components/TextRing";
 import testImage from "../assets/image/test.png";
 
 const coords = [
@@ -40,13 +42,14 @@ const coords = [
 const Name = () => {
   const animaMain = useRef(null);
   const animeBlur = useRef(null);
+  const animaRotate = useRef(null);
   const welcomeRef = useRef(null);
 
   const scrollHandler = () => {
     const windowHeight =
       window.innerHeight || document.documentElement.clientHeight;
     const targetTop = welcomeRef.current.getBoundingClientRect().top;
-    if (targetTop < window.innerHeight) {
+    if (targetTop < windowHeight) {
       let scrollPercent = Math.min(
         (windowHeight - targetTop) / windowHeight,
         1
@@ -56,18 +59,19 @@ const Name = () => {
     }
   };
   useEffect(() => {
-    animaMain.current = anime.timeline({
-      easing: "easeOutQuint",
-      duration: 1500,
-    });
-    animaMain.current.add({
-      targets: ["#name", "#scrollDownSign"],
-      translateY: ["30%", "0%"],
-      opacity: [0, 1],
-      easing: "easeInOutSine",
-      duration: 700,
-      delay: 300,
-    });
+    animaMain.current = anime
+      .timeline({
+        easing: "easeOutQuint",
+        duration: 1500,
+      })
+      .add({
+        targets: ["#name", "#scrollDownSign"],
+        translateY: ["30%", "0%"],
+        opacity: [0, 1],
+        easing: "easeInOutSine",
+        duration: 700,
+        delay: 300,
+      });
     for (let i = 0; i < coords.length; i++) {
       animaMain.current.add(
         {
@@ -85,9 +89,14 @@ const Name = () => {
       duration: 1000,
       autoplay: false,
     });
-    window.addEventListener("scroll", () => {
-      scrollHandler();
+    animaRotate.current = anime({
+      targets: ".text-ring",
+      rotate: [0, 360],
+      easing: "linear",
+      duration: 15000,
+      loop: true,
     });
+    window.addEventListener("scroll", scrollHandler);
     return () => {
       window.removeEventListener("scroll", scrollHandler);
     };
@@ -125,7 +134,8 @@ const Name = () => {
           <div className="container-1 front">
             <div id="name">HaoSung,</div>
             <div id="scrollDownSign">
-              <SlMouse size={30} />
+              <SlMouse size={30} color={"#CB4335"} />
+              <TextRing text="  ScrollDown  ScrollDown  ScrollDown" />
             </div>
           </div>
         </article>
