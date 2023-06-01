@@ -19,7 +19,6 @@ const Story = () => {
         1
       );
       let scrollEffect = animaRef.current;
-      console.log(scrollPercent);
       scrollEffect.seek(scrollPercent * scrollEffect.duration);
     }
   };
@@ -66,48 +65,56 @@ const Story = () => {
       <article className="story-container" ref={storyRef}>
         <div className="left-panel">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
-            perspiciatis!
+            你好，<br></br>我是社會新鮮人 宋豪。
+            {/* 主修統計學的緣故，使我擁有厚實的數理基礎，以及對於數據的強烈敏感度。 */}
+            熱衷於斜槓思維的我，對於「資料科學」、「計算機科學」與「財務金融」，
+            皆抱持著濃厚的興趣與精進的熱忱🔥
+            {/* <Emoji text="🔥" /> */}
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
-            doloremque doloribus odio omnis voluptates voluptatum quam unde
-            nostrum ab dolor?
+            在學期間，我曾參與兩項大型的校務資料分析專案。<br></br>
+            身為數據分析人員，我傾向以直觀的分析流程，解決上級提出的抽象問題，
+            並搭配創意的呈現手法，協助上級獲取額外的洞見。
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-            ducimus a, aut ab sequi laborum quas dolores maiores. Error iste
-            voluptatum repellendus illum nobis, beatae harum blanditiis
-            dignissimos adipisci aperiam?
+            “No matter when you start, it is important that you do not stop
+            after starting.” 一直是我的人生信條；一旦參與其中，我必定全力以赴✊
+            {/* <Emoji text="✊" /> */}
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo nisi
-            ut ex labore sunt nostrum?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex commodi
-            quo, fugiat repellendus et vitae suscipit. Repudiandae illo odit,
-            repellendus ducimus atque aperiam fugiat ab ea quas architecto vero,
-            ipsam doloremque asperiores ipsum ex saepe eius veritatis dolor
-            nesciunt quam?
+            閒暇時刻，
+            <br></br>
+            我喜歡蒔花弄草🌸
+            {/* <Emoji text="🌸" /> */}
+            ，培養植物由幼苗成長到成株，隨著季節更迭而開花結果；
+            <br></br>
+            又抑或是手沖一杯瓜地馬拉 安堤瓜☕
+            {/* <Emoji text="☕" /> */}
+            ，享受午後的餘裕!
           </p>
         </div>
         <div className="right-panel">
           <div className="intro">
             <div>
               <p>出身於</p>
-              <p>新竹縣</p>
+              <p>
+                中華民國 新竹市
+                <Emoji text="🥮" />
+              </p>
             </div>
             <div>
               <p>畢業於</p>
               <p>
                 國立成功大學 統計學系
-                <Emoji text="🏫" />
+                <Emoji text="📈" />
               </p>
             </div>
             <div>
               <p>居住於</p>
-              <p>新北市 新店區</p>
+              <p>
+                新北市 新店區
+                <Emoji text="🏡" />
+              </p>
             </div>
           </div>
         </div>

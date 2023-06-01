@@ -19,7 +19,7 @@ const Projects = ({ projects }) => {
   );
 };
 
-const Project = ({ title, image, desc, keywords, position, index }) => {
+const Project = ({ title, image, desc, keywords, position, links, index }) => {
   const anima = useRef(null);
   const projectRef = useRef(null);
 
@@ -71,7 +71,7 @@ const Project = ({ title, image, desc, keywords, position, index }) => {
             <p>{title}</p>
           </div>
           <div className="image-container">
-            {/* <img src={image.link} alt={image.desc} /> */}
+            {/* <img src={image.link} alt={image.alt} /> */}
           </div>
         </div>
         <div className="right-panel">
@@ -98,7 +98,18 @@ const Project = ({ title, image, desc, keywords, position, index }) => {
             </p>
           </div>
           <div className="link">
-            <a href="#">View source code on Github {"->"}</a>
+            {links.map((link, idx) => {
+              return (
+                <a
+                  key={`project-${index}-${idx}`}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {link.title}
+                </a>
+              );
+            })}
           </div>
         </div>
       </article>

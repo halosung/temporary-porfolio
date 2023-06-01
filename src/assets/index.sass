@@ -54,7 +54,7 @@ $container-size: 1, 2, 3, 4
         @include vh-center-item
     .front
         z-index: 1
-        background-color: rgba(0,0,0, 0.8)
+        background-color: rgba(0,0,0, 0.85)
         @include vh-center-item
 
 .name-container
@@ -152,15 +152,14 @@ $container-size: 1, 2, 3, 4
         display: grid
         grid-template-rows: 1fr 5% 1fr
         .title
-            color: #ABB2B9
+            color: #dfdfdf
             grid-row: 1 / 3
             grid-column: 1
             font-size: 9vh
             font-weight: bold
             text-align: left
             // letter-spacing: 5px
-            text-shadow: -4px 4px 0px #000, 4px 0 0px #000, -7px 4px 0 #D5D8DC
-            
+            text-shadow: -4px 4px 0px #000, 4px 0 0px #000, -7px 4px 0 #fff
             display: flex
             align-items: flex-end
             z-index: 1
@@ -205,6 +204,10 @@ $container-size: 1, 2, 3, 4
             align-items: center
             a
                 color: #fff
+                transition: color .3s ease-in-out
+                margin-right: 2.5vh
+            a:hover
+                color: #CB4335
 
 // * property for "Story" component
 // ! "position: absolute" will effect "sticky" finctionality
@@ -222,6 +225,7 @@ $container-size: 1, 2, 3, 4
         font-size: 6vh
         p
             margin-bottom: 7vh
+
     .right-panel
         height: 100%
         .intro

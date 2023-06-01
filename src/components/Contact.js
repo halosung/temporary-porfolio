@@ -69,7 +69,7 @@ const Contact = () => {
         <div className="container-1 front">
           <div></div>
           <div className="mail">
-            <div>hao052511@gmail.com</div>
+            <div>haosung0525@gmail.com</div>
           </div>
           <div className="phone">
             <div>{"(+886) 930 563 033"}</div>
