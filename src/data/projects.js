@@ -7,8 +7,6 @@ const projects = [
     title: ["象徵性資料", <br />, "的時間序列應用"],
     desc: [
       "本研究採用象徵性資料分析的概念，將南台灣每週的PM2.5觀測值整理成區間數值的形式，配適區間值時間序列模型，並利用區間變數特有的蒲公英圖，展現不同地區之間，污染物質的區間相關程度。",
-      <br />,
-      "結果顯示，中點相關性與全距相關性，深受地理因素影響；污染物質大約以高屏溪為界，分為兩個相異的流通體系。",
     ],
     image: {
       link: testImage,
@@ -36,7 +34,8 @@ const projects = [
   },
   {
     title: ["聯合國", <br />, "永續發展目標", <br />, "論文文字探勘"],
-    desc: "本專案以自然語言處理為主軸，分析各校的SDG3論文摘要，並運用統計數值定義各單位的研究特色，進行學校層級與地區層級的比較；同時納入SciVal所提供的關鍵字詞，綜合評估。",
+    // desc: "本專案以自然語言處理為主軸，分析各校的SDG3論文摘要，並運用統計數值定義各單位的研究特色，進行學校層級與地區層級的比較；同時納入SciVal所提供的關鍵字詞，綜合評估。",
+    desc: "本專案以各校SDG3論文摘要為分析標的，運用自然語言處理常見的分析手法，探討各單位的研究特色，進行學校層級與地區層級的比較；同時納入 SciVal 所提供的關鍵字詞，綜合評估。",
     image: {
       link: testImage,
       alt: "testImage",
@@ -55,10 +54,7 @@ const projects = [
       icon: <MdOutlineSchool size={30} style={{ marginRight: "5px" }} />,
       date: 2020,
     },
-    links: [
-      { title: "GitHub連結", href: "#" },
-      { title: "RPubs連結", href: "#" },
-    ],
+    links: [{ title: "GitHub連結", href: "#" }],
   },
   {
     title: ["學生", <br />, "跨領域學習", <br />, "行為分析"],
@@ -75,10 +71,7 @@ const projects = [
       icon: <MdOutlineSchool size={30} style={{ marginRight: "5px" }} />,
       date: 2020,
     },
-    links: [
-      { title: "GitHub連結", href: "#" },
-      { title: "RPubs連結", href: "#" },
-    ],
+    links: [{ title: "GitHub連結", href: "#" }],
   },
 ];
 

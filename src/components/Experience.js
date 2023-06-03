@@ -8,7 +8,7 @@ const Experience = ({ exp }) => {
     <section className="container-auto center-article">
       <article className="experience-container">
         <header className="summary">
-          大學期間，豐富的兼職經驗，不僅拓展了我的分析思維；更重要的，是面對組員及上司時，精簡有效的溝通實力。
+          大學期間，豐富的兼職經驗，不僅拓展了我的分析思維；更重要的，是面對同事及上司時，精簡有效的溝通實力。
         </header>
         <main>
           {exp.map((item, index) => {
