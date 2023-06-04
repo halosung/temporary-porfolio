@@ -58,9 +58,13 @@ body {
 }
 .name-container .image-container {
   height: 35vh;
-  width: 12.5vw;
+  width: 28vh;
   overflow: hidden;
   position: absolute;
+}
+.name-container .image-container img {
+  max-width: 101%;
+  height: auto;
 }
 
 .name-container .back {
@@ -71,7 +75,7 @@ body {
 }
 .name-container .front {
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -201,14 +205,14 @@ body {
 .project-container .left-panel .image-container {
   grid-row: 2/4;
   grid-column: 1;
-  border: 2.5vh solid white;
-  height: 36vh;
-  width: 39vw;
+  border: 2.5vh solid #17202A;
+  height: 40.5vh;
+  width: 72vh;
   overflow: hidden;
 }
 .project-container .left-panel .image-container img {
-  -o-object-fit: fill;
-     object-fit: fill;
+  max-width: 101%;
+  height: auto;
 }
 .project-container .right-panel {
   display: grid;

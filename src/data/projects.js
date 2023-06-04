@@ -1,4 +1,7 @@
-import testImage from "../assets/image/test_project.png";
+import IntervalTimeSeries from "../assets/image/IntervalTimeSeries.png";
+import tsHeatmap from "../assets/image/tsHeatmap.png";
+// import worldCloud from "../assets/image/worldCloud.png";
+import map from "../assets/image/map.png";
 
 import { MdOutlineSchool } from "react-icons/md";
 
@@ -9,8 +12,8 @@ const projects = [
       "本研究採用象徵性資料分析的概念，將南台灣每週的PM2.5觀測值整理成區間數值的形式，配適區間值時間序列模型，並利用區間變數特有的蒲公英圖，展現不同地區之間，污染物質的區間相關程度。",
     ],
     image: {
-      link: testImage,
-      alt: "testImage",
+      link: IntervalTimeSeries,
+      alt: "Interval Time Series",
     },
     keywords: [
       "象徵性資料分析",
@@ -37,8 +40,9 @@ const projects = [
     // desc: "本專案以自然語言處理為主軸，分析各校的SDG3論文摘要，並運用統計數值定義各單位的研究特色，進行學校層級與地區層級的比較；同時納入SciVal所提供的關鍵字詞，綜合評估。",
     desc: "本專案以各校SDG3論文摘要為分析標的，運用自然語言處理常見的分析手法，探討各單位的研究特色，進行學校層級與地區層級的比較；同時納入 SciVal 所提供的關鍵字詞，綜合評估。",
     image: {
-      link: testImage,
-      alt: "testImage",
+      link: map,
+      // alt: "Comparison World Cloud",
+      alt: "World Map",
     },
     keywords: [
       "文字探勘",
@@ -62,8 +66,8 @@ const projects = [
       "本專案利用學生修課記錄，探討學生跨領域學習的意向與模式。結果顯示，跨域學習頻率與年級之間，存在顯著的相依性；且必修學分與跨域學分之間，亦存在中度的負相關性。",
     ],
     image: {
-      link: testImage,
-      alt: "testImage",
+      link: tsHeatmap,
+      alt: "Time Series Heatmap",
     },
     keywords: ["類別資料分析", "資料視覺化", "R語言"],
     position: {

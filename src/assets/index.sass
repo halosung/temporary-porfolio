@@ -43,10 +43,14 @@ $container-size: 1, 2, 3, 4
     > div
         position: absolute
     .image-container
+        // maintain 4x5 ratio
         height: 35vh
-        width: 12.5vw
+        width: 28vh
         overflow: hidden
         position: absolute
+        img
+            max-width: 101%
+            height: auto
 
 .name-container
     .back
@@ -54,7 +58,7 @@ $container-size: 1, 2, 3, 4
         @include vh-center-item
     .front
         z-index: 1
-        background-color: rgba(0,0,0, 0.85)
+        background-color: rgba(0,0,0, 0.8)
         @include vh-center-item
 
 .name-container
@@ -166,12 +170,14 @@ $container-size: 1, 2, 3, 4
         .image-container
             grid-row: 2 / 4
             grid-column: 1
-            border: 2.5vh solid white
-            height: 36vh
-            width: 39vw
+            border: 2.5vh solid #17202A
+            // maintain 16x9 ratio
+            height: 40.5vh
+            width: 72vh
             overflow: hidden
             img
-                object-fit: fill
+                max-width: 101%
+                height: auto
     
     .right-panel
         display: grid

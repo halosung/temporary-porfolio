@@ -2,42 +2,11 @@ import React from "react";
 import { useRef, useEffect } from "react";
 import anime from "animejs";
 
-import { FaKiwiBird } from "react-icons/fa";
+// import { FaKiwiBird } from "react-icons/fa";
 import { SlMouse } from "react-icons/sl";
 
 import TextRing from "../components/TextRing";
-import testImage from "../assets/image/test.png";
-
-const coords = [
-  {
-    top: "70%",
-    right: "90%",
-  },
-  {
-    bottom: "62%",
-    right: "80%",
-  },
-  {
-    bottom: "40%",
-    right: "57%",
-  },
-  {
-    bottom: "5%",
-    right: "43%",
-  },
-  {
-    bottom: "62%",
-    left: "66%",
-  },
-  {
-    top: "65%",
-    left: "75%",
-  },
-  {
-    top: "20%",
-    left: "87%",
-  },
-];
+import bgImage from "../data/bgImage";
 
 const Name = () => {
   const animaMain = useRef(null);
@@ -72,12 +41,12 @@ const Name = () => {
         duration: 700,
         delay: 300,
       });
-    for (let i = 0; i < coords.length; i++) {
+    for (let i = 0; i < bgImage.length; i++) {
       animaMain.current.add(
         {
           targets: `.back div:nth-child(${Number(i) + 1})`,
           opacity: [0, 1],
-          ...coords[i],
+          ...bgImage[i].coord,
         },
         1000
       );
@@ -108,27 +77,13 @@ const Name = () => {
       <div className="sticky-container container-1">
         <article className="name-container container-1">
           <div className="container-1 back">
-            <div className="image-container">
-              <img src={testImage} alt="testImage" />
-            </div>
-            <div className="image-container">
-              <img src={testImage} alt="testImage" />
-            </div>
-            <div className="image-container">
-              <img src={testImage} alt="testImage" />
-            </div>
-            <div className="image-container">
-              <img src={testImage} alt="testImage" />
-            </div>
-            <div className="image-container">
-              <img src={testImage} alt="testImage" />
-            </div>
-            <div className="image-container">
-              <img src={testImage} alt="testImage" />
-            </div>
-            <div className="image-container">
-              <img src={testImage} alt="testImage" />
-            </div>
+            {bgImage.map((image, index) => {
+              return (
+                <div className="image-container" key={`bgImage-id-${index}`}>
+                  <img src={image.src} alt={image.alt} />
+                </div>
+              );
+            })}
           </div>
           {/* Name page */}
           <div className="container-1 front">
@@ -153,9 +108,9 @@ const Name = () => {
           </div>
         </article>
       </div>
-      <div className="marker-container">
+      {/* <div className="marker-container">
         <FaKiwiBird size={80} />
-      </div>
+      </div> */}
       {/* <div id="toggleButton">
         <FaBars size={80} />
       </div> */}

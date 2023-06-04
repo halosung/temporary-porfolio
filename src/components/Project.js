@@ -71,7 +71,7 @@ const Project = ({ title, image, desc, keywords, position, links, index }) => {
             <p>{title}</p>
           </div>
           <div className="image-container">
-            {/* <img src={image.link} alt={image.alt} /> */}
+            <img src={image.link} alt={image.alt} />
           </div>
         </div>
         <div className="right-panel">
