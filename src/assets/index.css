@@ -75,7 +75,7 @@ body {
 }
 .name-container .front {
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.825);
   display: flex;
   justify-content: center;
   align-items: center;

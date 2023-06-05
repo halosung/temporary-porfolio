@@ -2,6 +2,7 @@ import IntervalTimeSeries from "../assets/image/IntervalTimeSeries.png";
 import tsHeatmap from "../assets/image/tsHeatmap.png";
 // import worldCloud from "../assets/image/worldCloud.png";
 import map from "../assets/image/map.png";
+import collegeResearch from "../assets/pdf/College Student Research Scholarship.pdf";
 
 import { MdOutlineSchool } from "react-icons/md";
 
@@ -32,7 +33,7 @@ const projects = [
     },
     links: [
       { title: "期刊論文連結", href: "http://doi.org/10.1002/asmb.2733" },
-      { title: "科技部大專學生計畫", href: "#" },
+      { title: "科技部大專學生計畫", href: collegeResearch },
     ],
   },
   {
@@ -58,7 +59,12 @@ const projects = [
       icon: <MdOutlineSchool size={30} style={{ marginRight: "5px" }} />,
       date: 2020,
     },
-    links: [{ title: "GitHub連結", href: "#" }],
+    links: [
+      {
+        title: "GitHub連結",
+        href: "https://github.com/Hao-Sung/SDG3-TextMining",
+      },
+    ],
   },
   {
     title: ["學生", <br />, "跨領域學習", <br />, "行為分析"],
@@ -75,7 +81,12 @@ const projects = [
       icon: <MdOutlineSchool size={30} style={{ marginRight: "5px" }} />,
       date: 2020,
     },
-    links: [{ title: "GitHub連結", href: "#" }],
+    links: [
+      {
+        title: "GitHub連結",
+        href: "https://github.com/Hao-Sung/Student-Interdisciplinary-Learning",
+      },
+    ],
   },
 ];
 
