@@ -99,7 +99,7 @@ const Story = () => {
               <p>出身於</p>
               <p>
                 中華民國 新竹市
-                <Emoji text="🥮" />
+                <Emoji text="🥜" />
               </p>
             </div>
             <div>

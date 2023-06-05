@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import anime from "animejs";
 
 import { throttle } from "../utils";
+import Resume from "../assets/pdf/Resume.pdf";
 
 const Experience = ({ exp }) => {
   return (
@@ -22,7 +23,9 @@ const Experience = ({ exp }) => {
           })}
         </main>
         <footer className="download">
-          <a href="#">個人履歷下載 {"->"}</a>
+          <a href={Resume} target="_blank" rel="noreferrer">
+            個人履歷下載 {"->"}
+          </a>
         </footer>
       </article>
     </section>
